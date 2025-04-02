@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/UID-Interior-Design/', // Đường dẫn repo của bạn
   chunkSizeWarningLimit: 1000, // Thay đổi giá trị này để phù hợp với yêu cầu của bạn
   server: {
     port: 3000, // Cổng mà bạn muốn sử dụng cho server phát triển
