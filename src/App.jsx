@@ -1,35 +1,37 @@
-import React from "react";
-import Navbar from "./components/Navbar/Navbar";
-import Hero from "./components/Hero/Hero";
-import Brands from "./components/Brands/Brands";
-import Services from "./components/Services/Services";
-import Banner from "./components/Banner/Banner";
-import Banner2 from "./components/Banner/Banner2";
-import Testimonial from "./components/Testimonial/Testimonial";
-import Newsletter from "./components/Newsletter/Newsletter";
-import Footer from "./components/Footer/Footer";
-import Project from "./components/Project/Project";
-import Project2 from "./components/Project/Project2";
-import BackToTop from "./components/BackToTop/BackToTop"; // Import component
-import Chatbox from "./components/Chatbox/ChatBox"; // Import Chatbox
-import SocialIcons from "./components/SocialIcons/SocialIcons"; // Import SocialIcons
+import React, { Suspense, lazy } from "react";
+
+// Sử dụng lazy loading
+const Navbar = lazy(() => import("./components/Navbar/Navbar"));
+const Hero = lazy(() => import("./components/Hero/Hero"));
+const Brands = lazy(() => import("./components/Brands/Brands"));
+const Services = lazy(() => import("./components/Services/Services"));
+const Banner = lazy(() => import("./components/Banner/Banner"));
+const Banner2 = lazy(() => import("./components/Banner/Banner2"));
+const Testimonial = lazy(() => import("./components/Testimonial/Testimonial"));
+const Newsletter = lazy(() => import("./components/Newsletter/Newsletter"));
+const Footer = lazy(() => import("./components/Footer/Footer"));
+const Project = lazy(() => import("./components/Project/Project"));
+const Project2 = lazy(() => import("./components/Project/Project2"));
+const BackToTop = lazy(() => import("./components/BackToTop/BackToTop"));
 
 const App = () => {
   return (
-    <main className="overflow-x-hidden">
-      <Navbar />
-      <Hero />
-      <Brands />
-      <Services />
-      <Project2 />
-      <Project />
-      <Banner />
-      <Banner2 />
-      <Testimonial />
-      <Newsletter />
-      <Footer />
-      <BackToTop /> {/* Sử dụng component */}
+    <main className="overflow-x-hidden relative">
+      <Suspense fallback={<div className="text-center p-4">Đang tải...</div>}>
+        <Navbar />
+        <Hero />
+        <Brands />
+        <Services />
+        <Project2 />
+        <Project />
+        <Banner />
+        <Banner2 />
+        <Testimonial />
+        <Newsletter />
+        <Footer />
+        <BackToTop />
 
+      </Suspense>
     </main>
   );
 };
